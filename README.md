@@ -1,11 +1,15 @@
-Template Method
+1. Qual problema o exemplo resolve?
 
-1. estudar a intenção do padrão recebido;
+O exemplo resolve o problema de ter jogos diferentes que seguem a mesma sequência de execução: iniciar, jogar e finalizar. Sem o Template Method, cada jogo poderia implementar essa ordem de forma diferente ou duplicar a lógica do fluxo principal.
 
-Exemplo: Construção em massa de casas, a maioria dos itens são os mesmos porém com colocações diferentes. As portas, janelas e afins de uma casa é um lugar, porém na outra é em outros lugares. Fazendo que o construtor não precise mudar a base que seria a casa mas conseguindo fazer pequenos ajustes como a localização da porta ou afins.
+2. Por que esse padrão foi usado?
 
-2. entender qual problema ele resolve;
+O padrão Template Method foi usado porque ele permite definir um fluxo fixo na classe abstrata Game, por meio do método play(), mas deixa que cada jogo implemente os detalhes das etapas. Assim, Football e Chess seguem a mesma estrutura, mas com comportamentos próprios.
 
-Resolver o problema de duplicação de código;
-Falta de padronização em etapas estruturais idênticas, mas alguns passos específicos diferentes;
-Facilita a manutenção e expansão, novos comportamentos podem ser adicionados criando novas subclasses, sem precisar modificar o código existente (seguindo o princípio Aberto/Fechado), pois estará organizado;
+3. Quais classes, interfaces ou objetos participam da solução?
+
+A classe abstrata Game participa como a classe principal do padrão, pois define o método template play(). As classes Football e Chess são subclasses concretas, responsáveis por implementar os métodos start(), playTurn() e end(). No método main, os objetos football e chess são criados e executam o fluxo definido por Game.
+
+4. Como o fluxo do exemplo funciona?
+
+O fluxo começa quando o método play() é chamado. Esse método sempre executa as etapas na mesma ordem: primeiro chama start(), depois playTurn() e por fim end(). Quando o objeto é Football, as mensagens são relacionadas ao futebol. Quando o objeto é Chess, as mensagens são relacionadas ao xadrez. Assim, a ordem do algoritmo fica padronizada, mas o comportamento de cada etapa muda conforme o tipo de jogo.
