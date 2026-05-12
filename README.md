@@ -13,3 +13,17 @@ A classe abstrata Game participa como a classe principal do padrão, pois define
 4. Como o fluxo do exemplo funciona?
 
 O fluxo começa quando o método play() é chamado. Esse método sempre executa as etapas na mesma ordem: primeiro chama start(), depois playTurn() e por fim end(). Quando o objeto é Football, as mensagens são relacionadas ao futebol. Quando o objeto é Chess, as mensagens são relacionadas ao xadrez. Assim, a ordem do algoritmo fica padronizada, mas o comportamento de cada etapa muda conforme o tipo de jogo.
+
+# Evolução do Template Method
+
+## O que o exemplo original fazia
+O sistema simulava jogos utilizando o padrão comportamental Template Method.
+
+## Evolução realizada
+Foi adicionada uma nova etapa chamada `saveProgress()` no fluxo principal do jogo.
+
+## Alterações feitas
+- Criação do método abstrato `saveProgress()`;
+- Implementação do método nas subclasses;
+- Inclusão da etapa no método template `play()`;
+- Adição de um novo jogo para demonstrar escalabilidade.,
